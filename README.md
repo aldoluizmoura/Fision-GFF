@@ -4,7 +4,13 @@ Aplicação feita baseada nos conhecimentos adquiridos no curso Dominando MVC co
 
 Técnologias Usadas:
 
-MVC core 5.0.0 Entity Framework Core 5.0.0 Identity Framework Core 5.0.0 Boostrap 4 font awesome 4.7 Regra de négocio baseada em uma Clinica de Pilates existente, implementando as funções para controle de fluxo financeiro. As funcionalidades implementadas são:
+ - MVC core 5.0.0 Entity 
+ - Framework Core 5.0.0 
+ - Identity Framework Core 5.0.0 
+ - Boostrap 4 
+ - font awesome 4.7 R
+ 
+ Regra de negócio baseada em uma Clinica de Pilates existente, implementando as funções para controle de fluxo financeiro. As funcionalidades implementadas são:
 
 -Cadastro de Alunos e Profissionais, cadastrando junto o endereço e o contrato financeiro;
 

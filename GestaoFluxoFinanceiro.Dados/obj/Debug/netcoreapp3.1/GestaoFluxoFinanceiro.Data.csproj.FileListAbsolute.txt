@@ -1,0 +1,4 @@
+C:\dev\Projetos\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Data\bin\Debug\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.dll
+C:\dev\Projetos\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Data\obj\Debug\netcoreapp3.1\GestaoFluxoFinanceiro.Data.csprojAssemblyReference.cache
+C:\dev\Projetos\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Data\obj\Debug\netcoreapp3.1\GestaoFluxoFinanceiro.Data.AssemblyInfoInputs.cache
+C:\dev\Projetos\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Data\obj\Debug\netcoreapp3.1\GestaoFluxoFinanceiro.Data.AssemblyInfo.cs

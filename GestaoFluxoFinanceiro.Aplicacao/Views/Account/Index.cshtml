@@ -1,0 +1,59 @@
+﻿@model IEnumerable<GestaoFluxoFinanceiro.Aplicacao.ViewModels.Acesso.UsuariosViewModel>
+
+<table class="table table-hover" id="tbl">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>                 
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ativo)
+                </td>
+                
+                   
+                <td class="text-right">
+                    <a disable-by-claim-name="Adm" disable-by-claim-value="Ger" class="btn btn-warning" asp-controller="Account" asp-action="ChangePassword" asp-route-id="@item.Id"><spam class="fa fa-eye"></spam> </a>
+                    <a disable-by-claim-name="Adm" disable-by-claim-value="Editar" class="btn btn-info" asp-controller="Account" asp-action="Desativar" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                    <a disable-by-claim-name="Adm" disable-by-claim-value="Excluir" class="btn btn-danger" asp-controller="Account" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Paginacao();
+        });
+    </script>
+}

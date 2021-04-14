@@ -1,0 +1,9 @@
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\bin\Release\netcoreapp3.1\EmailService.deps.json
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\bin\Release\netcoreapp3.1\EmailService.dll
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\bin\Release\netcoreapp3.1\EmailService.pdb
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.dll
+C:\dev\Fision\GestaoFluxoFinanceiro\EmailService\obj\Release\netcoreapp3.1\EmailService.pdb

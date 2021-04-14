@@ -1,0 +1,103 @@
+﻿@model IEnumerable<GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.OutrosMovimentosViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <vc:Summary></vc:Summary>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Outros Movimentos Financeiros</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p supress-by-claim-name="Adm" supress-by-claim-value="Adicionar">
+                                    <a class="btn btn-info" asp-action="Create">Novo Valor</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 feature_col">
+                                <table class="table table-hover" id="tbl">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>
+                                                DESCRIÇÃO
+                                            </th>
+                                            <th>
+                                                TIPO
+                                            </th>
+                                            <th>
+                                                VALOR
+                                            </th>
+                                            <th>
+                                                COMPETÊNCIA
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(itemmodel => item.Descricao)
+                                                </td>
+                                                @if (item.Tipo == 1)
+                                                {
+                                                    <td><p style="color:cornflowerblue">RECEITA</p></td>
+                                                }
+                                                @if (item.Tipo == 2)
+                                                {
+                                                    <td><p style="color:red">DESPESA</p></td>
+                                                }
+                                                <td>
+                                                    @item.Valor.ToString("C")
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(itemmodel => item.Competencia)
+                                                </td>
+                                                <td class="text-right">
+                                                    <a disable-by-claim-name="Adm" disable-by-claim-value="Ger" class="btn btn-warning" asp-controller="OutrosMovimentos" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-eye"></spam> </a>
+                                                    <a disable-by-claim-name="Adm" disable-by-claim-value="Editar" class="btn btn-info" asp-controller="OutrosMovimentos" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                                                    <a disable-by-claim-name="Adm" disable-by-claim-value="Excluir" class="btn btn-danger" asp-controller="OutrosMovimentos" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <a class="btn btn-info" href="@Url.Action("Menu","Home")">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+    @section scripts{
+
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                Paginacao();
+            });
+        </script>
+    }
+
+
+
+
+

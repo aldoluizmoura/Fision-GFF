@@ -1,0 +1,85 @@
+﻿@model IEnumerable<GestaoFluxoFinanceiro.Aplicacao.ViewModels.ProfissionalViewModel>
+
+@{
+    ViewData["Title"] = "Profissional Page";
+}
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <vc:Summary></vc:Summary>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Profissionais</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <p supress-by-claim-name="Adm" supress-by-claim-value="Adicionar">
+                                    <a class="btn btn-info" asp-action="Create">Novo Profissional</a>
+                                </p>
+                            </div>
+                        </div>
+                        <table class="table table-hover" id="tbl">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Nome)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CPF)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Matricula)
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CPF)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Matricula)
+                                        </td>
+
+                                        <td class="text-right">
+                                            <a disable-by-claim-name="Adm" disable-by-claim-value="Visual" class="btn btn-warning" asp-controller="Profissional" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-eye"></spam> </a>
+                                            <a disable-by-claim-name="Adm" disable-by-claim-value="Ger" class="btn btn-info" asp-controller="Profissional" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                                            <a disable-by-claim-name="Adm" disable-by-claim-value="Excluir" class="btn btn-danger" asp-controller="Profissional" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Paginacao();
+        });
+    </script>
+}

@@ -1,0 +1,124 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.MovimentoAlunoViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row" id="row-recibo">
+            <div class="col-md-12">
+                <div class="card">                   
+                    <div class="card-header">
+                        <center><h4 class="card-title">Pagar Mensalidade</h4></center>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form asp-action="Edit">
+                                <vc:Summary></vc:Summary>
+                                <div class="row">
+                                    <div class="col-md-12 order-md-2 mb-4">
+                                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="text-muted">@Model.Aluno</span><br />
+                                            <span class="text-muted">@Model.CompetenciaMensalidade</span>                                            
+                                        </h4>
+                                        <ul class="list-group mb-3">
+                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Caixa de Referência</h6>
+                                                </div>
+                                                @if (@Model.CompetenciaPagamento == null)
+                                                {
+                                                    <span class="text-muted">Mensalidade ainda não paga</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">@Model.CompetenciaPagamento</span>
+                                                }
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Mensalidade</h6>
+                                                </div>
+                                                <span class="text-muted">@Model.ValorMensalidade.ToString("C")</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Desconto</h6>
+                                                </div>
+                                                <span class="text-muted">@Model.Desconto.ToString("C")</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Data de Vencimento</h6>
+                                                </div>
+                                                <span class="text-muted">@Model.DataVencimento.ToShortDateString()</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Data de Pagamento</h6>
+                                                </div>
+                                                @if (Model.DataPagamento == DateTime.Parse("01/01/0001"))
+                                                {
+                                                    <span class="text-muted">Documento não Pago</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">@Model.DataPagamento.ToShortDateString()</span>
+                                                }
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                                <div class="text-danger">
+                                                    <h6 class="my-0">Valor Pago</h6>
+                                                </div>
+                                                @if (Model.ValorPago == 0)
+                                                {
+                                                    <span class="text-danger">@Model.ValorPago.ToString("C")</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-success">@Model.ValorPago.ToString("C")</span>
+                                                }
+
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong>Observação:&nbsp;</strong>
+                                                <strong>@Model.Observacao</strong>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Total</span>
+                                                @if (Model.ValorPagar == 0)
+                                                {
+                                                    <p style="color:green">Pago</p>
+                                                }
+                                                else
+                                                {
+                                                    <strong style="color:red">@Model.ValorPagar.ToString("C")</strong>
+                                                }
+                                            </li>
+                                        </ul>
+                                        <center>
+                                            <input type="hidden" asp-for="Id" />
+                                            <input type="submit" value="Quitar" class="btn btn-success" /> |
+                                            <a href="@this.Url.Action("DesfazerQuitacao","MovimentoFinanceiroAluno", new {Id = Model.Id })" class="btn btn-danger">Desfazer Quitação</a> |
+                                            <a href="@this.Url.Action("GerarRecibo","MovimentoFinanceiroAluno", new {Id = Model.Id })" class="btn btn-warning">Gerar Recibo</a> |
+                                        </center>
+                                    </div>
+                                </div>
+                            </form>
+                            <div>
+                                <a asp-action="Index" class="btn btn-info">Voltar</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

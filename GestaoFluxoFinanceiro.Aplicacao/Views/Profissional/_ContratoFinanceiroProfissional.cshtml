@@ -1,0 +1,36 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.ProfissionalViewModel
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiroProfissional.ValorUnitario" class="control-label"></label>
+            <input asp-for="ContratoFinanceiroProfissional.ValorUnitario" class="form-control" />
+            <span asp-validation-for="ContratoFinanceiroProfissional.ValorUnitario" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiroProfissional.MargemLucro" class="control-label"></label>
+            <input asp-for="ContratoFinanceiroProfissional.MargemLucro" class="form-control" />
+            <span asp-validation-for="ContratoFinanceiroProfissional.MargemLucro" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiroProfissional.QuantidadeAlunos" class="control-label"></label>
+            <input asp-for="ContratoFinanceiroProfissional.QuantidadeAlunos" class="form-control" />
+            <span asp-validation-for="ContratoFinanceiroProfissional.QuantidadeAlunos" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 pr-1">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiroProfissional.Observacao" class="control-label"></label>
+            <textarea rows="4" cols="50" asp-for="ContratoFinanceiroProfissional.Observacao" class="form-control"></textarea>
+            <span asp-validation-for="ContratoFinanceiroProfissional.Observacao" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+

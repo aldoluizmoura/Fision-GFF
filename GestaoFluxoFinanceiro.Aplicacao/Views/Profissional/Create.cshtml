@@ -1,0 +1,157 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.ProfissionalViewModel
+@{
+    ViewData["Title"] = "Novo Profissional";
+}
+<head>
+    <link href="~/Content/css/pikaday.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+</head>
+
+<div class="album py-5 bg-light">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <center><h4 class="card-title">Novo Profissional </h4></center>
+                </div>
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form asp-action="Create">                                  
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <br />
+                                                        <div class="content">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 pr-1">
+                                                                        <div class="form-group">
+                                                                            <label asp-for="Nome" class="control-label"></label>
+                                                                            <input asp-for="Nome" class="form-control" />
+                                                                            <span asp-validation-for="Nome" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 pr-1">
+                                                                        <div class="form-group">
+                                                                            <label asp-for="CPF" class="control-label"></label>
+                                                                            <input asp-for="CPF" class="form-control" />
+                                                                            <span asp-validation-for="CPF" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 pr-1">
+                                                                        <div class="form-group">
+                                                                            <label asp-for="Email" class="control-label"></label>
+                                                                            <input asp-for="Email" class="form-control" />
+                                                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 pr-1">
+                                                                        <div class="form-group">
+                                                                            <label asp-for="Telefone" class="control-label"></label>
+                                                                            <input asp-for="Telefone" class="form-control" />
+                                                                            <span asp-validation-for="Telefone" class="text-danger"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 pr-1">
+                                                                        <div class="form-group">
+                                                                            <label asp-for="TipoSexo"></label>
+                                                                            <div>
+                                                                                <input type="radio" value="1" asp-for="TipoSexo" /> Feminino
+                                                                                <input type="radio" value="2" asp-for="TipoSexo" /> Masculino
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 pr-1">
+                                                                        <label asp-for="DataNascimento" class="control-label"></label>
+                                                                        <input asp-for="DataNascimento" type="text" id="datepicker" class="form-control">
+                                                                        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                                                                    </div>
+                                                                    <div class="col-md-4 pr-1">
+                                                                        <label asp-for="EspecialidadeId" class="control-label"></label>
+                                                                        <select asp-items="ViewBag.Especialidades" asp-for="EspecialidadeId" class="form-control">
+                                                                            <option></option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                </div>
+                                                
+                                                <div class="col-md-6">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h6 class="card-title">Contrato financeiro</h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <partial name="_ContratoFinanceiroProfissional" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h6 class="card-title">Endereço</h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <partial name="_Endereco" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <button type="submit" class="btn btn-success">Salvar</button>&nbsp;&nbsp;
+                                                    <a class="btn btn-info" href="@Url.Action("Menu","Home")">Voltar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ </div>
+
+@section Scripts {
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/Content/js/plugins/moment.min.js"></script>
+    <script src="~/Content/js/plugins/pikaday.js"></script>
+    <script src="~/Content/js/plugins/jquery.mask.min.js"></script>
+
+    <script>
+        BuscaCep();
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#datepicker').mask('00/00/0000');            
+
+            var picker = new Pikaday
+                ({
+                    field: document.getElementById('datepicker'),
+                    format: 'DD/MM/YYYY',
+                    maxDate: new Date()
+                });
+        });
+    </script>
+
+}

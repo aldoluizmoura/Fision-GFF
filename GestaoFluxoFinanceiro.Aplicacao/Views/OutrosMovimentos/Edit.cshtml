@@ -1,0 +1,105 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.OutrosMovimentosViewModel
+@using GestaoFluxoFinanceiro.Aplicacao.Extensions
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row" id="row-recibo">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <center><h4 class="card-title">@Model.Descricao</h4></center>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form asp-action="Edit">
+                                <vc:Summary></vc:Summary>
+                                <input type="hidden" asp-for="Id" />
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label asp-for="Descricao" class="control-label"></label>
+                                                <input asp-for="Descricao" class="form-control" />
+                                                <span asp-validation-for="Descricao" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label asp-for="Tipo" class="control-label"></label>
+                                                <select class="form-control" asp-for="Tipo">
+                                                    @if (Model.Tipo == 1)
+                                                    {
+                                                        <option value="@Model.Tipo">RECEITA</option>
+                                                    }
+                                                    @if (Model.Tipo == 2)
+                                                    {
+                                                        <option value="@Model.Tipo">DESPESA</option>
+                                                    }
+                                                    <option value="1">RECEITA</option>
+                                                    <option value="2">DESPESA</option>
+                                                </select>
+                                                <span asp-validation-for="Tipo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label asp-for="Competencia" class="control-label"></label>
+                                                <select asp-for="Competencia" class="form-control">
+                                                    <option value="@RazorExtensions.converterCompetenciaValue(Model.Competencia.Substring(0,2))">@RazorExtensions.converterCompetenciaDesc(Model.Competencia)</option>
+                                                    <option value="01">Janeiro</option>
+                                                    <option value="02">Fevereiro</option>
+                                                    <option value="03">Março</option>
+                                                    <option value="04">Abril</option>
+                                                    <option value="05">Maio</option>
+                                                    <option value="06">Junho</option>
+                                                    <option value="07">Julho</option>
+                                                    <option value="08">Agosto</option>
+                                                    <option value="09">Setembro</option>
+                                                    <option value="10">Outubro</option>
+                                                    <option value="11">Novembro</option>
+                                                    <option value="12">Dezembro</option>
+                                                </select>
+                                                <span asp-validation-for="Competencia" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="Valor" class="control-label"></label>
+                                                <input asp-for="Valor" class="form-control" />
+                                                <span asp-validation-for="Valor" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="Observacao" class="control-label"></label>
+                                                <textarea asp-for="Observacao" rows="3" class="form-control"></textarea>
+                                                <span asp-validation-for="Observacao" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-success">Salvar</button>
+                                            <a asp-action="Index" class="btn btn-info">Voltar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>                            
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

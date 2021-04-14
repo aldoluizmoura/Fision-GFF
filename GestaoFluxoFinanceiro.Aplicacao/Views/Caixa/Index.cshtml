@@ -1,0 +1,106 @@
+﻿@model IEnumerable<GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.CaixaViewModel>
+@using GestaoFluxoFinanceiro.Aplicacao.Extensions
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="album py-5 bg-light">
+    <div class="container">
+        <vc:Summary></vc:Summary>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Caixas</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p supress-by-claim-name="Adm" supress-by-claim-value="Adicionar">
+                                    <a class="btn btn-info" asp-action="Create">Novo Caixa</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 feature_col">
+                                <table class="table table-hover" id="tbl">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>
+                                                COMPETÊNCIA
+                                            </th>
+                                            <th>
+                                                DATA DE GERAÇÃO
+                                            </th>
+                                            <th>
+                                                SALDO
+                                            </th>
+                                            <th>
+                                                SITUAÇÃO
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.Competencia.Substring(0, 2)&nbsp;-&nbsp;@RazorExtensions.converterCompetenciaDesc(item.Competencia) &nbsp;/&nbsp; @item.Competencia.Substring(2, 4)
+                                                </td>
+
+                                                <td>
+                                                    @item.DataCaixa.ToShortDateString()
+                                                </td>
+
+                                                @if (item.TotalFinal >= 0)
+                                                {
+                                                    <td><p style="color:green">Positivo</p></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><p style="color:red">Negativo</p></td>
+                                                }
+                                                @if (item.Situacao == 1)
+                                                {
+                                                    <td><p style="color:cornflowerblue">Aberto</p></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><p style="color:forestgreen">Fechado</p></td>
+                                                }
+
+                                                <td class="text-right">
+                                                    <a disable-by-claim-name="Adm" disable-by-claim-value="Editar" class="btn btn-info" asp-controller="Caixa" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <a class="btn btn-info" href="@Url.Action("Index","Financeiro")">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Paginacao();
+        });
+    </script>
+}
+}
+
+
+
+

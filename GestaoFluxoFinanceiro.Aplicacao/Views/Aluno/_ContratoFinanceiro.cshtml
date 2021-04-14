@@ -1,0 +1,37 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.AlunoViewModel
+
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiro.Valor" class="control-label"></label>
+            <input asp-for="ContratoFinanceiro.Valor" class="form-control" />
+            <span asp-validation-for="ContratoFinanceiro.Valor" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiro.Desconto" class="control-label"></label>
+            <input asp-for="ContratoFinanceiro.Desconto" class="form-control" />
+            <span asp-validation-for="ContratoFinanceiro.Desconto" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiro.Vencimento" class="control-label"></label>
+            <select asp-for="ContratoFinanceiro.Vencimento">
+                <option >05</option>
+                <option>10</option>
+            </select>
+            <span asp-validation-for="ContratoFinanceiro.Vencimento" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+            <label asp-for="ContratoFinanceiro.Observacao" class="control-label"></label>
+            <textarea rows="4" cols="50" asp-for="ContratoFinanceiro.Observacao" class="form-control"></textarea>
+            <span asp-validation-for="ContratoFinanceiro.Observacao" class="text-danger"></span>
+        </div>
+    </div>
+</div>

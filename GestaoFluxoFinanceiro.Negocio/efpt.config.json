@@ -1,0 +1,42 @@
+﻿{
+   "CodeGenerationMode": 1,
+   "ContextClassName": "GestaofluxofinanceiroFisionContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "GestaoFluxoFinanceiro.Negocio",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 1,
+   "Tables": [
+      {
+         "Name": "[dbo].[View_Detalhamento_OutrosMovimentos]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_Detalhamento_Receita_Alunos]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[View_Detalhamento_Receita_Profissionais]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "DESKTOP-1DB6FTP\\SQLEXPRESS.GestaoFluxoFinanceiro.Fision",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}

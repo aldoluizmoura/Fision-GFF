@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Opções Financeiras";
+}
+
+<head>
+    <link href="~/css/botões.css" rel="stylesheet" />
+</head>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Financeiro</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","MovimentoFinanceiroAluno")">
+                                            <img src="~/layoutSite/icones/alunos.png" alt="alunos">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Alunos</h3>
+                                    <div class="feature_text">
+                                        <p>Movimentações Financeiras dos Aunos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","MovimentoFinanceiroProfissional")">
+                                            <img src="~/layoutSite/icones/professional.png" alt="profissionais">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Profissionais</h3>
+                                    <div class="feature_text">
+                                        <p>Movimentações Financeiras dos Profissionais</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","OutrosMovimentos")">
+                                            <img src="~/layoutSite/icones/financeiro.png" alt="financeiro">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Outros Movimentos</h3>
+                                    <div class="feature_text">
+                                        <p>Outras Movimentações Financeiras</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","Caixa")">
+                                            <img src="~/layoutSite/icones/caixa.png" alt="Caixa">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Caixa</h3>
+                                    <div class="feature_text">
+                                        <p>Opções para o Caixa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

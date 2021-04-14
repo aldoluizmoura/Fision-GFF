@@ -1,0 +1,49 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.EspecialidadesViewModel
+@{
+    ViewData["Title"] = "Nova Especialidade";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" id="card-mensalidades">
+                    <div class="card-header">
+                        <center><h4 class="card-title">Nova Especialidade</h4></center>
+                    </div>
+                    <div class="content">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <form asp-action="Create">
+                                            <vc:Summary></vc:Summary>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-group" asp-for="Descricao"></label>
+                                                    <input asp-for="Descricao" class="form-control" />
+                                                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">Salvar</button>
+                                                    <a class="btn btn-info" href="@Url.Action("Index","Especialidade")">Voltar</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

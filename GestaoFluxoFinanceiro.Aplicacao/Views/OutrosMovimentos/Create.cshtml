@@ -1,0 +1,95 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.OutrosMovimentosViewModel
+@{
+    ViewData["Title"] = "Novo Movimento";
+}
+
+<h4>Gerar valores dos profissionais</h4>
+<br />
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" id="card-mensalidades">
+                    <div class="card-header">
+                        <center><h4 class="card-title">Geras novos valores</h4></center>
+                    </div>
+                    <form asp-action="Create">
+                        <vc:Summary></vc:Summary>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Descricao" class="control-label"></label>
+                                        <input asp-for="Descricao" class="form-control" />
+                                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Tipo" class="control-label"></label>
+                                        <select class="form-control" asp-for="Tipo">
+                                            <option></option>
+                                            <option value="1">RECEITA</option>
+                                            <option value="2">DESPESA</option>
+                                        </select>
+                                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Competencia" class="control-label"></label>
+                                        <select asp-for="Competencia" class="form-control">
+                                            <option></option>
+                                            <option value="01">Janeiro</option>
+                                            <option value="02">Fevereiro</option>
+                                            <option value="03">Março</option>
+                                            <option value="04">Abril</option>
+                                            <option value="05">Maio</option>
+                                            <option value="06">Junho</option>
+                                            <option value="07">Julho</option>
+                                            <option value="08">Agosto</option>
+                                            <option value="09">Setembro</option>
+                                            <option value="10">Outubro</option>
+                                            <option value="11">Novembro</option>
+                                            <option value="12">Dezembro</option>
+                                        </select>
+                                        <span asp-validation-for="Competencia" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Valor" class="control-label"></label>
+                                        <input asp-for="Valor" class="form-control" />
+                                        <span asp-validation-for="Valor" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Observacao" class="control-label"></label>
+                                        <textarea asp-for="Observacao" rows="3" class="form-control"></textarea>
+                                        <span asp-validation-for="Observacao" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Salvar</button>
+                                    <a class="btn btn-info" href="@Url.Action("Index","OutrosMovimentos")">Voltar</a>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

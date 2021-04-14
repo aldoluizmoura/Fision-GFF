@@ -1,0 +1,62 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.OutrosMovimentosViewModel
+@using GestaoFluxoFinanceiro.Aplicacao.Extensions
+@{
+    ViewData["Title"] = "Detalhes";
+}
+<h4>@ViewData["Title"]</h4>
+<hr />
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row" id="row-recibo">
+            <div class="col-md-12 order-md-2 mb-8">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted"></span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <span>
+                                @if (Model.Tipo == 1)
+                                {
+                                    <h6 style="color:green">RECEITA</h6>
+                                }
+                                @if (Model.Tipo == 2)
+                                {
+                                    <h6 style="color:red">DESPESA</h6>
+                                }
+                            </span>
+                        </div>
+                        <span class="text-muted">@Model.Descricao</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Competência</h6>
+                        </div>
+                        <span class="text-muted">@RazorExtensions.converterCompetenciaDesc(Model.Competencia.Substring(0, 2)) - @Model.Competencia.Substring(2, 4)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Valor</h6>
+                        </div>
+                        <span class="text-muted">@Model.Valor.ToString("C")</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Data do Movimento</h6>
+                        </div>
+                        <span class="text-muted">@Model.DataMovimento.ToShortDateString()</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Observação</h6>
+                        </div>
+                        <text class="text-muted">@Model.Observacao</text>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-info" href="@Url.Action("Index","OutrosMovimentos")">Voltar</a>
+        </div>
+    </div>
+</div>

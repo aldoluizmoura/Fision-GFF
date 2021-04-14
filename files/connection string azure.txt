@@ -1,0 +1,1 @@
+Data Source=tcp:gestaofluxofinanceiro-fision.database.windows.net,1433;Initial Catalog=GestaoFluxoFinanceiro.Fision_db;User Id=aldoluizmoreira@gestaofluxofinanceiro-fision;Password=Aldoluiz21

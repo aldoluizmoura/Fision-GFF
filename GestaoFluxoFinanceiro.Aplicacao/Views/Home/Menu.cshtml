@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Configurações gerais";
+}
+
+<head>
+    <link href="~/css/botões.css" rel="stylesheet" />
+</head>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Cadastros</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","Aluno")">
+                                            <img src="~/layoutSite/icones/alunos.png" alt="psicologos">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Alunos</h3>
+                                    <div class="feature_text">
+                                        <p>Cadastro de Aunos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","Profissional")">
+                                            <img src="~/layoutSite/icones/professional.png" alt="professionais">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Profissionais</h3>
+                                    <div class="feature_text">
+                                        <p>Cadastro de Profissionais</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 feature_col">
+                                <div class="feature text-center trans_400">
+                                    <div class="feature_icon">
+                                        <a class="stretched-link" href="@Url.Action("Index","Especialidade")">
+                                            <img src="~/layoutSite/icones/especialidades.png" alt="especialidades">
+                                        </a>
+                                    </div>
+                                    <h3 class="feature_title">Especialidades</h3>
+                                    <div class="feature_text">
+                                        <p>Cadastro de Especialidades</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

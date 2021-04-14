@@ -1,0 +1,30 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.ProfissionalViewModel
+@{
+    ViewData["Title"] = "Atualizar Contrato Financeiro";
+}
+
+<div class="modal-header">
+    <h4 class="modal-title">@ViewData["Title"]</h4>
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span><span class="sr-only">Fechar</span>
+    </button>
+</div>
+
+<form asp-action="AtualizarContratoFinanceiroProfissional">
+    <div class="modal-body">
+
+        <input type="hidden" asp-for="ContratoFinanceiroProfissional.ProfissionalId" />
+        <input type="hidden" asp-for="ContratoFinanceiroProfissional.Id" />
+
+        <partial name="_ContratoFinanceiroProfissional" />
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Atualizar Contrato" class="btn btn-success" />
+                <input type="button" class="btn btn-info" value="Fechar" data-dismiss="modal" />
+            </div>
+        </div>
+
+    </div>
+</form>
+

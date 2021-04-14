@@ -1,0 +1,64 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.MovimentoAlunoViewModel
+@{
+    ViewData["Title"] = "Mensalidades";
+}
+
+<h4>Gerar mensalidades dos alunos</h4>
+<br />
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" id="card-mensalidades">
+                    <div class="card-header">
+                        <center><h4 class="card-title">Gerar Mensalidades </h4></center>
+                    </div>
+                    <form asp-action="Create">
+                        <vc:Summary></vc:Summary>
+                        <div class="content">
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6" id="area-mensalidade">
+                                        <label asp-for="CompetenciaMensalidade"></label>:
+                                        <select class="form-control" asp-for="CompetenciaMensalidade">
+                                            <option></option>
+                                            <option value="01">Janeiro</option>
+                                            <option value="02">Fevereiro</option>
+                                            <option value="03">Março</option>
+                                            <option value="04">Abril</option>
+                                            <option value="05">Maio</option>
+                                            <option value="06">Junho</option>
+                                            <option value="07">Julho</option>
+                                            <option value="08">Agosto</option>
+                                            <option value="09">Setembro</option>
+                                            <option value="10">Outubro</option>
+                                            <option value="11">Novembro</option>
+                                            <option value="12">Dezembro</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="CompetenciaMensalidade" class="text-danger"></span>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-success" value="Gerar" />
+                                        <a class="btn btn-info" href="@Url.Action("Index","MovimentoFinanceiroAluno")">Voltar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+   
+}

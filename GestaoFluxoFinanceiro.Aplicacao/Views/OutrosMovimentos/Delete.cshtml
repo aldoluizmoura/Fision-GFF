@@ -1,0 +1,81 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.OutrosMovimentosViewModel
+@using GestaoFluxoFinanceiro.Aplicacao.Extensions
+
+@{
+    ViewData["Title"] = "Excluir ?";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 order-md-2 mb-8">
+                        <div class="card-header">
+                            <center><h4 class="card-title">Tem certeza que vai excluir @Model.Descricao?</h4> <p style="color:red">essa ação é irreversível!</p></center>
+                        </div>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <span class="">
+                                        @if (Model.Tipo == 1)
+                                        {
+                                            <h6 style="color:green">RECEITA</h6>
+                                        }
+                                        @if (Model.Tipo == 2)
+                                        {
+                                            <h6 style="color:red">DESPESA</h6>
+                                        }
+                                    </span>
+                                </div>
+                                <span class="text-muted">@Model.Descricao</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Competência</h6>
+                                </div>
+                                <span class="text-muted">@RazorExtensions.converterCompetenciaDesc(Model.Competencia.Substring(0, 2)) - @Model.Competencia.Substring(2, 4)</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Valor</h6>
+                                </div>
+                                <span class="text-muted">@Model.Valor.ToString("C")</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Data do Movimento</h6>
+                                </div>
+                                <span class="text-muted">@Model.DataMovimento.ToShortDateString()</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Observação</h6>
+                                </div>
+                                <text class="text-muted">@Model.Observacao</text>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+                            <a class="btn btn-info" asp-action="Index">Voltar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

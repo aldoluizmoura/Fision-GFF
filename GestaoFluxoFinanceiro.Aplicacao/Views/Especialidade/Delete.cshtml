@@ -1,0 +1,43 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.EspecialidadesViewModel
+
+@{
+    ViewData["Title"] = "Excluir ?";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" id="card-mensalidades">
+                    <div class="card-header">
+                        <center><h4 class="card-title">Tem certeza que vai excluir @Model.Descricao?</h4> <p style="color:red">essa ação é irreversível!</p></center>
+                    </div>
+                    <vc:Summary></vc:Summary>
+
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Descricao)
+                        </dd>                        
+                    </dl>
+                    <hr />
+                    <div class="row">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+                            <a class="btn btn-info" asp-action="Index">Voltar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

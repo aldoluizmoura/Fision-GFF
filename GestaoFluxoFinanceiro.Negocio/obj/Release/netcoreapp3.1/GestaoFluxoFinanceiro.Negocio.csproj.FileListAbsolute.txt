@@ -1,0 +1,9 @@
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\bin\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.deps.json
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\bin\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.dll
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\bin\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.pdb
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.csprojAssemblyReference.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.AssemblyInfoInputs.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.AssemblyInfo.cs
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.csproj.CoreCompileInputs.cache
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.dll
+C:\dev\Fision\GestaoFluxoFinanceiro\GestaoFluxoFinanceiro.Negocio\obj\Release\netcoreapp3.1\GestaoFluxoFinanceiro.Negocio.pdb

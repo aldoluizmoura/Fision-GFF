@@ -1,0 +1,100 @@
+﻿@model GestaoFluxoFinanceiro.Aplicacao.ViewModels.Financeiro.MovimentoProfissionalViewModel
+
+@{
+    ViewData["Title"] = "ReciboProfissional";
+    Layout = null;
+}
+<head>
+    <link href="~/layoutSite/bootstrap-4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/layoutSite/css/style.css" rel="stylesheet" />
+</head>
+<div class="row justify-content-between">
+    <div class="col-md-12 " align="center">
+        <img src="~/imagens/logo.png" /><h3>Recibo de Pagamento</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">@Model.Profissional</span><br />
+            <span class="text-muted">@Model.CompetenciaCobranca</span>
+        </h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <p class="my-0">Valor Unitário:</p>
+                </div>
+                <span class="text-muted">@Model.ValorUnitario.ToString("C")</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <p class="my-0">Quantidade de Alunos:</p>
+                </div>
+                <span class="text-muted">@Model.QuantidadeAlunos</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Total Mensal</h6>
+                </div>
+                <span class="text-muted">@Model.ValorTotal.ToString("C")</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Valor do Profissional</h6>
+                </div>
+                <span class="text-muted">@((Model.ValorProfissional*100)/Model.ValorTotal)% : @Model.ValorProfissional.ToString("C")</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Valor a Receber</h6>
+                </div>
+                <span class="text-muted">@Model.ValorReceber.ToString("C")</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">Data de Pagamento</h6>
+                </div>
+                @if (Model.DataPagamento == DateTime.Parse("01/01/0001"))
+                {
+                    <span class="text-muted">Documento não Pago</span>
+                }
+                else
+                {
+                    <span class="text-muted">@Model.DataPagamento.ToShortDateString()</span>
+                }
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                @if (Model.ValorPago == 0)
+                {
+                }
+                else
+                {
+                    <div class="text-success">
+                        <h6 class="my-0">Valor Recebido</h6>
+                    </div>
+                    <span class="text-success">@Model.ValorPago.ToString("C")</span>
+                }
+
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <strong>Observação:&nbsp;</strong>
+                <strong>@Model.Observacao</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Total</span>
+                @if (Model.ValorReceber == 0)
+                {
+                    <p style="color:green">Quitado</p>
+                }
+                else
+                {
+                    <strong style="color:red">@Model.ValorReceber.ToString("C")</strong>
+                }
+
+            </li>
+        </ul>
+       
+    </div>
+</div>
+

@@ -8,7 +8,7 @@ Técnologias Usadas:
  - Framework Core 5.0.0 
  - Identity Framework Core 5.0.0 
  - Boostrap 4 
- - font awesome 4.7 R
+ - font awesome 4.7
  
  Regra de negócio baseada em uma Clinica de Pilates existente, implementando as funções para controle de fluxo financeiro. As funcionalidades implementadas são:
 

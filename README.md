@@ -5,7 +5,7 @@ Aplicação feita baseada nos conhecimentos adquiridos no curso Dominando MVC co
 Técnologias Usadas:
 
  - MVC core 5.0.0 Entity 
- - Framework Core 5.0.0 
+ - Entity Framework Core 5.0.0 
  - Identity Framework Core 5.0.0 
  - Boostrap 4 
  - font awesome 4.7

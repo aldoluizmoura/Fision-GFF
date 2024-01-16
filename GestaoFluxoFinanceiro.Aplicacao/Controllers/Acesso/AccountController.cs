@@ -117,6 +117,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
         {
             return View();
         }
+        
         [Route("mudar-senha")]
         [ClaimsAuthorize("Adm", "Visual")]
         [HttpPost]

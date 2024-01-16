@@ -34,18 +34,21 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
             _emailSender = emailSender;
             _mapper = mapper;
         }
+        
         [ClaimsAuthorize("Adm", "Ger")]
         public async Task<IActionResult> Index()
         {
             var logins = _mapper.Map<IEnumerable<UsuariosViewModel>>(await _identityContexto.Users.ToListAsync());
             return View(logins);
         }
+        
         [Route("registar-novo-usuario")]
         [ClaimsAuthorize("Adm", "Ger")]
         public IActionResult Register()
         {
             return View();
         }
+        
         [HttpPost]
         [Route("registar-novo-usuario")]
         [ClaimsAuthorize("Adm", "Ger")]
@@ -78,6 +81,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
             }
             return View(model);
         }
+        
         [HttpGet]
         [AllowAnonymous]
         [Route("fazer-login")]
@@ -85,6 +89,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
         {
             return View();
         }
+        
         [HttpPost]
         [AllowAnonymous]
         [Route("fazer-login")]
@@ -105,6 +110,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
             }
             return View(userViewModel);
         }
+        
         [ClaimsAuthorize("Adm", "Visual")]
         [Route("mudar-senha")]
         public IActionResult ResetPassword()
@@ -138,6 +144,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
             TempData["Sucesso"] = "Alteração realizada!";
             return View("ResetPasswordConfirmation", entidadeViewModel);
         }
+        
         [Route("mudar-senha-email")]
         [AllowAnonymous]
         [HttpGet]
@@ -150,6 +157,7 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
             }
             return View("ResetPasswordEmail",entidadeViewModel);
         }
+        
         [Route("confirmar-mudar-senha-email")]
         [AllowAnonymous]
         [HttpPost]
@@ -175,13 +183,15 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
 
             TempData["Sucesso"] = "Alteração realizada!";
             return View("ResetPasswordConfirmation", entidadeViewModel);
-        }        
+        }     
+        
         [AllowAnonymous]
         [Route("esqueceu-senha")]
         public IActionResult ForgotPassword()
         {
             return View();
         }
+        
         [AllowAnonymous]
         [Route("esqueceu-senha")]
         [HttpPost]
@@ -202,18 +212,21 @@ namespace GestaoFluxoFinanceiro.Aplicacao.Controllers.Acesso
 
             return RedirectToAction(nameof(ForgotPasswordConfirmation));            
         }
+        
         [AllowAnonymous]
         [Route("confirmacao-email-senha")]
         public IActionResult ResetPasswordConfirmation()
         {
             return View();
         }
+        
         [AllowAnonymous]
         [Route("email-enviado")]
         public IActionResult ForgotPasswordConfirmation()
         {
             return View();
         }
+        
         [Route("sair")]
         [AllowAnonymous]
         public async Task<IActionResult> Logout()

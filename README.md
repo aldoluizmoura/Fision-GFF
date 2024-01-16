@@ -1,7 +1,5 @@
 CLINICA FISION - GESTÃO DE FLUXO FINANCEIRO
 
-Aplicação feita baseada nos conhecimentos adquiridos no curso Dominando MVC core da Desenvolvedor.io.
-
 Técnologias Usadas:
 
  - MVC core 5.0.0 Entity 
